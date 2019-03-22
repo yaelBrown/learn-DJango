@@ -1,0 +1,4 @@
+Django crashCourse notes
+
+https://www.youtube.com/watch?v=D6esTdOLXh4&t=2588s
+
