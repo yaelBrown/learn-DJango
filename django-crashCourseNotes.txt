@@ -2,3 +2,133 @@ Django crashCourse notes
 
 https://www.youtube.com/watch?v=D6esTdOLXh4&t=2588s
 
+
+install python
+
+check python version
+  python3 --version
+
+install pip
+  sudo apt isntall python-pip
+
+install Django
+  pip install django
+
+install python3-django
+  sudo apt-get install python3-django
+
+install django-admin
+  sudo apt install python-django-common
+
+install python extension (in vscode)
+  Python Extension Pack by Don Jayamanne
+
+
+
+Setup project
+  django-admin startproject [project name]
+
+
+
+manage.py is a wrapper
+
+./settings.py has all of the settings
+  dont share secret key L23, 
+  debug value = true for development, (set to false when deploy)
+  allowed host - add domain names
+  install_apps - is the apps installed (similar to node module)
+  middleware - components responsible for doing something (similar to node modules)
+  database - setup the database to use for application. (by default uses sqlite3)
+
+./urls.py - used to setup routes
+  uses regular expressions for the url patterns
+
+./wsgi.py - standard for web platforms
+
+
+
+Run web server
+  sudo python manage.py runserver
+    localhost:8000
+
+apply migrations
+  python manage.py migrates
+
+
+
+install mysqlclient
+  sudo apt-get install python-dev default-libmysqlclient-dev
+  sudo apt-get install python3-dev
+  pip install mysqlclient
+
+  install phpmyadmin
+    (make sure php is installed)
+    veriy php mysql or mysqli extensions
+      php -m | grep mysql
+    install mysql
+      sudo apt-get update
+      sudo apt-get install mysql-server
+    sudo apt-get install -y phpmyadmin
+      apache2
+      yes
+      [dbpass]
+  
+  Use command line to configure mysql server
+    sudo ufw allow mysql
+    systemctrl start mysql
+    sudo /usr/bin/mysql -u root -p
+      [dbpass]
+
+    Create a database
+      CREATE DATABASE [dbName]
+
+  Add mysql database in ./settings.py
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'djangoproject',    // Name of database 
+    'USER': 'root',
+    'PASSWORD': '[dbpass]',
+    'HOST': 'localhost',
+    'PORT': ''
+
+  Test admin page works
+    start server
+    localhost:8000/admin
+
+Setup Django admin
+  sudo python manage.py createsuperuser --username=[username] --email=[email@email.addy]
+  ['password']
+  ['password']
+
+  test created user
+    start server
+    localhost:8000/admin
+      login with created credentials
+
+
+
+Create apps (30:20)
+  sudo python manage.py startapp [appName]
+  [appName] folder should be created
+  add [appName] in ./settings.py/INSTALLED_APPS
+  add [appName] route in ./urls.py
+    " url(r'^posts/', include('posts.url')), " 
+    add import include after url (at the top)
+
+  create url.py file in [appName] folder
+    write import statements
+
+WARN: / is world writable!
+  View root directory permissions
+    ls -ld /      
+  
+  Change root directory permissions
+    chmod 755 /    
+
+  ufw - ubuntu firewall 
+    sudo ufw status
+
+Error: That port is already in use
+  Kill process thats using port 8000
+
+
+
