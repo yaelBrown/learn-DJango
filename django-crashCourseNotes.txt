@@ -23,12 +23,8 @@ install django-admin
 install python extension (in vscode)
   Python Extension Pack by Don Jayamanne
 
-
-
 Setup project
   django-admin startproject [project name]
-
-
 
 manage.py is a wrapper
 
@@ -45,16 +41,14 @@ manage.py is a wrapper
 
 ./wsgi.py - standard for web platforms
 
-
-
 Run web server
   sudo python manage.py runserver
     localhost:8000
+    localhost:8000/admin 
+      Takes you to admin page. 
 
 apply migrations
   python manage.py migrates
-
-
 
 install mysqlclient
   sudo apt-get install python-dev default-libmysqlclient-dev
@@ -104,11 +98,9 @@ Setup Django admin
     localhost:8000/admin
       login with created credentials
 
-
-
 Create apps (30:20)
   sudo python manage.py startapp [appName]
-  [appName] folder should be created
+  [appName] folder should be created in the directory that you are in 
   add [appName] in ./settings.py/INSTALLED_APPS
   add [appName] route in ./urls.py
     " url(r'^posts/', include('posts.url')), " 
